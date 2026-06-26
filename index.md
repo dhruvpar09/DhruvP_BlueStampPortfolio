@@ -2,9 +2,8 @@
 This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its preexisting motion to avoid these obstacles. I am tentatively considering adding a camera to this robot and incorporating image recognition technologies, although this may change if time constraints or other factors do not permit it.
 
 You should comment out all portions of your portfolio that you have not completed yet,  as well as any instructions:
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
+```HTML
+placeholder
 ```
 
 | **Engineer** | **School** | **Areas of Interest** | **Grade** |
@@ -14,7 +13,7 @@ You should comment out all portions of your portfolio that you have not complete
 **Replace the BlueStamp logo below with an image of yourself and your completed project. (note to self: this image is a placeholder for now.) Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](SunFounderArduinoSelfDrivingCarImage.png)
-  <!--
+  <!---
 # Final Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
@@ -52,7 +51,7 @@ For your first milestone, describe what your project is and how you plan to buil
 - Technical progress you've made so far
 - Challenges you're facing and solving in your future milestones
 - What your plan is to complete your project
--->
+--->
 
 # Starter Project
 ## Retro Arcade Console
