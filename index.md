@@ -1,14 +1,14 @@
 # Self Driving Car
 This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its preexisting motion to avoid these obstacles. I am tentatively considering adding a camera to this robot and incorporating image recognition technologies, although this may change if time constraints or other factors do not permit it.
 
-You should comment out all portions of your portfolio that you have not completed yet,  as well as any instructions:
 ```HTML
-placeholder
+You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions. (this isn't commented out to keep it visible. it should be deleted before the website is complete.)
 ```
 
-| **Engineer** | **School** | **Areas of Interest** | **Grade** |
+| **Student** | **School** | **Areas of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Dhruv P | Stratford Preparatory Blackford | Robotics and            Computer Science | Incoming Junior
+| Dhruv P | Stratford Preparatory Blackford | Robotics and | Incoming Junior
+| | | Computer Science | 
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. (note to self: this image is a placeholder for now.) Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
@@ -56,6 +56,8 @@ For your first milestone, describe what your project is and how you plan to buil
 # Starter Project
 ## Retro Arcade Console
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6TELPC9OSp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+My starter project of choice was the Retro Arcade Console. This console simulates multiple video games from the late 20th century, via a CPU soldered onto the motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then determines how to change the game environment accordingly. It then instructs the LCD screens to display different shapes in order to reflect this change. This visual cue then informs the user of how to react to the game's updated status.
 
 <!--
 # Schematics 
