@@ -7,8 +7,8 @@ You should comment out all portions of your portfolio that you have not complete
 
 | **Student** | **School** | **Areas of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Dhruv P | Stratford Preparatory Blackford | Robotics and | Incoming Junior
-| | | Computer Science | 
+| Dhruv P | Stratford Preparatory | Robotics | Incoming Junior
+| | Blackford | Computer Science | 
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. (note to self: this image is a placeholder for now.) Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
