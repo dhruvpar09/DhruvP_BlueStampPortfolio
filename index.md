@@ -2,7 +2,8 @@
 This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its preexisting motion to avoid these obstacles. I am tentatively considering adding a camera to this robot and incorporating image recognition technologies, although this may change if time constraints or other factors do not permit it.
 
 ```HTML
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions. (this isn't commented out to keep it visible. it should be deleted before the website is complete.)
+You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions. 
+(this isn't commented out to keep it visible. it should be deleted before the website is complete.)
 ```
 
 | **Student** | **School** | **Areas of Interest** | **Grade** |
