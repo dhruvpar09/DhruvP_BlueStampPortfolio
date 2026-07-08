@@ -50,11 +50,63 @@ For your second milestone, explain what you've worked on since your previous mil
 
   I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were providing power to the motors instead of solely instructing the motor driver on how to control them. However, I managed to adjust to this information, using the Arduino's INPUT and OUTPUT LOW modes to toggle whether each motor was rotating or not. I wrote some basic tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
 
-Tester Code:
+Motor Tester Code:
 ```c++
-int c=0;
-c++; //:)
-Serial.println(c);
+
+//setting some constants as the pin numbers of the motors
+int rightBackwardPin = 2;
+int rightForwardPin = 4;
+int leftForwardPin = 7;
+int leftBackwardPin = 8;
+
+//Arduino-required setup function
+void setup(){
+  Serial.begin(9600);
+  Serial.println("program started");
+
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, INPUT);
+  pinMode(leftForwardPin, INPUT);
+  pinMode(leftBackwardPin, INPUT);
+
+  digitalWrite(rightBackwardPin, LOW);
+  digitalWrite(rightForwardPin, LOW);
+  digitalWrite(leftForwardPin, LOW);
+  digitalWrite(leftBackwardPin, LOW);
+}
+
+//edit this to change the speed at which the tester code runs
+int timeConst = 1000;
+
+//arduino-required loop function
+void loop(){
+  rightMotorStop();
+  leftMotorStop();
+  delay(leftForwardPin * timeConst);
+  
+  rightMotorForward();
+  delay(1 * timeConst);
+  rightMotorStop();
+  delay(1 * timeConst);
+  rightMotorBackward();
+  delay(1 * timeConst);
+  rightMotorStop();
+  delay(1 * timeConst);
+
+  delay(rightBackwardPin * timeConst);
+
+  leftMotorForward();
+  delay(1 * timeConst);
+  leftMotorStop();
+  delay(1 * timeConst);
+  leftMotorBackward();
+  delay(1 * timeConst);
+  leftMotorStop();
+  delay(1 * timeConst);
+
+  delay(rightBackwardPin * timeConst);
+}
+
 ```
 
 <!--
