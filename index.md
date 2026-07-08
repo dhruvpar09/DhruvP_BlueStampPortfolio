@@ -53,6 +53,41 @@ For your second milestone, explain what you've worked on since your previous mil
 Motor Tester Code:
 ```c++
 
+//methods to either stop each motor or move them forward or backward
+void leftMotorBackward() {
+  pinMode(leftBackwardPin, INPUT);
+  pinMode(leftForwardPin, OUTPUT);
+  digitalWrite(leftForwardPin, LOW);
+}
+
+void leftMotorForward() {
+  pinMode(leftForwardPin, INPUT);
+  pinMode(leftBackwardPin, OUTPUT);
+  digitalWrite(leftBackwardPin, LOW);
+}
+
+void leftMotorStop() {
+  pinMode(leftForwardPin, INPUT);
+  pinMode(leftBackwardPin, INPUT);
+}
+
+void rightMotorBackward() {
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, OUTPUT);
+  digitalWrite(rightForwardPin, LOW);
+}
+
+void rightMotorForward() {
+  pinMode(rightForwardPin, INPUT);
+  pinMode(rightBackwardPin, OUTPUT);
+  digitalWrite(rightBackwardPin, LOW);
+}
+
+void rightMotorStop() {
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, INPUT);
+}
+
 //setting some constants as the pin numbers of the motors
 int rightBackwardPin = 2;
 int rightForwardPin = 4;
@@ -64,18 +99,22 @@ void setup(){
   Serial.begin(9600);
   Serial.println("program started");
 
+  //set pins to input so that they are by default stopping motor rotation when the code starts
   pinMode(rightBackwardPin, INPUT);
   pinMode(rightForwardPin, INPUT);
   pinMode(leftForwardPin, INPUT);
   pinMode(leftBackwardPin, INPUT);
 
+  //setting the pins to low current output
+  //when they are set to output mode, this will prevent them from damaging the motor driver
+  //which would happen from a current supply that the motor driver could not handle
   digitalWrite(rightBackwardPin, LOW);
   digitalWrite(rightForwardPin, LOW);
   digitalWrite(leftForwardPin, LOW);
   digitalWrite(leftBackwardPin, LOW);
 }
 
-//edit this to change the speed at which the tester code runs
+//change this constant to change the speed at which the tester code runs
 int timeConst = 1000;
 
 //arduino-required loop function
@@ -83,7 +122,8 @@ void loop(){
   rightMotorStop();
   leftMotorStop();
   delay(leftForwardPin * timeConst);
-  
+
+  //test the right motor's forward motion, backward motion, and stopping ability
   rightMotorForward();
   delay(1 * timeConst);
   rightMotorStop();
@@ -93,8 +133,10 @@ void loop(){
   rightMotorStop();
   delay(1 * timeConst);
 
+  //pause
   delay(rightBackwardPin * timeConst);
 
+  //test the left motor's forward motion, backward motion, and stopping ability
   leftMotorForward();
   delay(1 * timeConst);
   leftMotorStop();
@@ -104,6 +146,7 @@ void loop(){
   leftMotorStop();
   delay(1 * timeConst);
 
+  //pause
   delay(rightBackwardPin * timeConst);
 }
 
