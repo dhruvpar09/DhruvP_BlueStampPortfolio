@@ -121,7 +121,7 @@ int timeConst = 1000;
 void loop(){
   rightMotorStop();
   leftMotorStop();
-  delay(leftForwardPin * timeConst);
+  delay(2 * timeConst);
 
   //test the right motor's forward motion, backward motion, and stopping ability
   rightMotorForward();
@@ -134,7 +134,7 @@ void loop(){
   delay(1 * timeConst);
 
   //pause
-  delay(rightBackwardPin * timeConst);
+  delay(2 * timeConst);
 
   //test the left motor's forward motion, backward motion, and stopping ability
   leftMotorForward();
@@ -147,7 +147,7 @@ void loop(){
   delay(1 * timeConst);
 
   //pause
-  delay(rightBackwardPin * timeConst);
+  delay(2 * timeConst);
 }
 
 ```
