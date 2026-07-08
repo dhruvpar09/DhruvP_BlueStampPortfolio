@@ -164,7 +164,7 @@ For your first milestone, describe what your project is and how you plan to buil
 ## Retro Arcade Console
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6TELPC9OSp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-My starter project of choice was the Retro Arcade Console. This console simulates multiple video games from the late 20th century, via a CPU soldered onto the motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then determines how to change the game environment accordingly. It then instructs the LCD screens to display different shapes in order to reflect this change. This visual cue then informs the user of how to react to the game's updated status.
+My starter project of choice was the Retro Arcade Console. This console simulates multiple retro video games via a CPU soldered onto its motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then determines how to change the game environment accordingly. It then instructs the LCD screens to display different shapes in order to reflect this change.
 
 <!--
 # Schematics 
