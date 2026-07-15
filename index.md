@@ -43,7 +43,7 @@ For your second milestone, explain what you've worked on since your previous mil
 - What needs to be completed before your final milestone 
 -->
 
-# Second Milestone Code
+## Second Milestone Code
 ```c++
 int rightBackwardPin = 5;
 int rightForwardPin = 3;
