@@ -1,9 +1,9 @@
 # Self Driving Car
-This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its preexisting motion to avoid these obstacles. I am tentatively considering adding a camera to this robot and incorporating image recognition technologies, although this may change if time constraints or other factors do not permit it.
+This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. I am considering adding a camera to this robot and incorporating image recognition into it, although this may change if time constraints or other factors do not permit it.
 
 ```HTML
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions. 
-(this isn't commented out to keep it visible. it should be deleted before the website is complete.)
+(note to self: this isn't commented out to keep it visible. it should be deleted before the website is complete.)
 ```
 
 | **Student** | **School** | **Areas of Interest** | **Grade** |
@@ -26,14 +26,15 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
-
+-->
 
 
 # Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G32riu_K6mg" title="Second Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bbbbbb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<!--
+**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
@@ -42,9 +43,244 @@ For your second milestone, explain what you've worked on since your previous mil
 - What needs to be completed before your final milestone 
 -->
 
+# Second Milestone Code
+```c++
+int rightBackwardPin = 5;
+int rightForwardPin = 3;
+int leftForwardPin = 9;
+int leftBackwardPin = 6;
+int onOffSwitchPin = 7;
+
+//code to change motor movement states
+//pin map: rightBackwardPin --> right back, rightForwardPin --> right forward, leftForwardPin --> left forward, leftBackwardPin --> left back
+//methods have not been updated to reflect that /\ 
+//movement map: input --> stop, output & low --> move
+void leftMotorForward() {
+  pinMode(leftBackwardPin, INPUT);
+  pinMode(leftForwardPin, OUTPUT);
+  digitalWrite(leftForwardPin, LOW);
+}
+
+void leftMotorBackward() {
+  pinMode(leftForwardPin, INPUT);
+  pinMode(leftBackwardPin, OUTPUT);
+  digitalWrite(leftBackwardPin, LOW);
+}
+
+void leftMotorStop() {
+  pinMode(leftBackwardPin, INPUT);
+  pinMode(leftForwardPin, INPUT);
+}
+
+void rightMotorForward() {
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, OUTPUT);
+  digitalWrite(rightForwardPin, LOW);
+}
+
+void rightMotorBackward() {
+  pinMode(rightForwardPin, INPUT);
+  pinMode(rightBackwardPin, OUTPUT);
+  digitalWrite(rightBackwardPin, LOW);
+}
+
+void rightMotorStop() {
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, INPUT);
+}
+
+//no-parameter movement code
+//forward movement, backward movement, left or right rotation, and stopping
+void startForward(){
+  rightMotorForward();
+  leftMotorForward();
+}
+
+void startBackward(){
+  rightMotorBackward();
+  leftMotorBackward();
+}
+
+void startRight(){
+  rightMotorBackward();
+  leftMotorForward();
+}
+
+void startLeft(){
+  rightMotorForward();
+  leftMotorBackward();
+}
+
+void stop(){
+  rightMotorStop();
+  leftMotorStop();
+}
+
+//time based functions for movement, rotation, and stopping
+//basically, "do this action for a specified amount of time"
+void forwardTime(int milliseconds){
+  startForward();
+  delay(milliseconds);
+  stop();
+}
+
+void backwardTime(int milliseconds){
+  startBackward();
+  delay(milliseconds);
+  stop();
+}
+
+void rightTime(int milliseconds){
+  startRight();
+  delay(milliseconds);
+  stop();
+}
+
+void leftTime(int milliseconds){
+  startLeft();
+  delay(milliseconds);
+  stop();
+}
+
+void stopTime(int milliseconds){
+  stop();
+  delay(milliseconds);
+}
+
+//actual code and testing
+//arduino-required setup function
+void setup() {
+
+  //not related to motors or sensors
+  Serial.begin(9600);
+  Serial.println("program started");
+
+  //motor pins + on/off pin
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, INPUT);
+  pinMode(leftForwardPin, INPUT);
+  pinMode(leftBackwardPin, INPUT);
+  pinMode(onOffSwitchPin, INPUT);
+
+  //motor pins
+  digitalWrite(rightBackwardPin, LOW);
+  digitalWrite(rightForwardPin, LOW);
+  digitalWrite(leftForwardPin, LOW);
+  digitalWrite(leftBackwardPin, LOW);
+}
+
+bool canRunCode = false;
+//arduino-required loop function
+void loop() {
+  if (canRunCode){
+    //tester code only for now
+    /*
+    motorTest();
+    delay(100);
+    forwardBackward();
+    delay(100);
+    rotateLeftRight();
+    delay(3000);
+    timedForwardBackward(2000);
+    delay(100);
+    timedLeftRight(2000);
+    */
+    forwardBackward();
+    delay(100);
+  }
+  
+
+  int isCircuitActive = digitalRead(onOffSwitchPin);
+  Serial.println(digitalRead(onOffSwitchPin));
+  if (isCircuitActive==1){
+    canRunCode = true;
+  } else if (isCircuitActive==0){
+    canRunCode = false;
+  } else { //good programming practice? (add an else block everywhere) 
+    canRunCode = false;
+  }
+}
+
+//tester methods
+//tests if each motor can move forward and backwards
+void motorTest(){
+  Serial.println("motorTest executing");
+  rightMotorStop();
+  leftMotorStop();
+  delay(2000);
+  
+  rightMotorForward();
+  delay(1000);
+  rightMotorStop();
+  delay(1000);
+  rightMotorBackward();
+  delay(1000);
+  rightMotorStop();
+  delay(1000);
+
+  leftMotorForward();
+  delay(1000);
+  leftMotorStop();
+  delay(1000);
+  leftMotorBackward();
+  delay(1000);
+  leftMotorStop();
+  delay(1000);
+
+}
+
+//tests forward and backward movement
+void forwardBackward(){
+  Serial.println("executing forwardBackward");
+  stop();
+  startForward();
+  delay(4000);
+  stop();
+  delay(1000);
+  startBackward();
+  delay(4000);
+  stop();
+  delay(1000);
+}
+
+//tests left and right rotation
+void rotateLeftRight(){
+  Serial.println("rotateLeftRight executing");
+  stop();
+  startLeft();
+  delay(2000);
+  stop();
+  delay(1000);
+  startRight();
+  delay(2000);
+  stop();
+  delay(1000);
+}
+
+//tests methods that make the car go forward and backward for a specific amount of time
+void timedForwardBackward(int milliseconds){
+  Serial.println("timed forward backward executing");
+  stop();
+  forwardTime(milliseconds);
+  stopTime(milliseconds);
+  backwardTime(milliseconds);
+  stopTime(milliseconds);
+}
+
+//tests methods that make the car turn right or left for a specific amount of time
+void timedLeftRight(int milliseconds){
+  Serial.println("timed left right executing");
+  stop();
+  leftTime(milliseconds);
+  stopTime(milliseconds);
+  rightTime(milliseconds);
+  stopTime(milliseconds);
+}
+```
+
 # First Milestone
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/FzxPjumBy4o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FzxPjumBy4o" title="First Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
   My summer intensive project is the self driving car. I chose this project because it integrates sensors and motor movement into one project. Most robots in the industry need to change their motion as a reaction to sensor inputs; a project that does just that gives me valuable experience to build on in future robotics projects. This project also has the flexibility to support many potential modifications, giving me many options to expand on it depending on which technologies I choose to gain experience with.
 
@@ -162,14 +398,14 @@ For your first milestone, describe what your project is and how you plan to buil
 
 # Starter Project
 ## Retro Arcade Console
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6TELPC9OSp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6TELPC9OSp4" title="Starter Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-My starter project of choice was the Retro Arcade Console. This console simulates multiple retro video games via a CPU soldered onto its motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then determines how to change the game environment accordingly. It then instructs the LCD screens to display different shapes in order to reflect this change.
+My starter project was the Retro Arcade Console. This console simulates multiple retro video games via a CPU soldered onto a motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then accordingly changes the game environment. It then instructs the LCD screens on what to display in order to reflect this change.
 
-<!--
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
+<!--
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
@@ -185,17 +421,23 @@ void loop() {
   Serial.thisIsPlaceHolderCode();
 }
 ```
+-->
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 
-| **Part** | **Note** | **Price** | **Link** |
+## Starter Project 
+| **Part** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+
+## Summer Intensive Project 
+| **Part** | **Purpose** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
+<!--
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
 - [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
