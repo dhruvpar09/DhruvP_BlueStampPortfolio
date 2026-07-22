@@ -15,12 +15,13 @@ You should comment out all portions of your portfolio that you have not complete
 
 ![Headstone Image](image.png)
 ![Headstone Image](SunFounderArduinoSelfDrivingCarImage.png)
-  <!--
-# Final Milestone
+  
+# Third Milestone
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7JM3k529tL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<!--
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aaaaaaaaa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
@@ -285,7 +286,7 @@ void timedLeftRight(int milliseconds){
 
   My summer intensive project is the self driving car. I chose this project because it integrates sensors and motor movement into one project. Most robots in the industry need to change their motion as a reaction to sensor inputs; a project that does just that gives me valuable experience to build on in future robotics projects. This project also has the flexibility to support many potential modifications, giving me many options to expand on it depending on which technologies I choose to gain experience with.
 
-  I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were providing power to the motors instead of solely instructing the motor driver on how to control them. However, I managed to adjust to this information, using the Arduino's INPUT and OUTPUT LOW modes to toggle whether each motor was rotating or not. I wrote some tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
+  I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were powering the motors' movement, instead of solely telling the motor driver how to control them. I adjusted to this information, using the Arduino's INPUT and OUTPUT LOW pin modes (instead of the more typical OUTPUT LOW and OUTPUT HIGH) to toggle whether each motor was rotating or not. Following this, I wrote some tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
 
 Motor Tester Code:
 ```c++
@@ -356,6 +357,8 @@ int timeConst = 1000;
 
 //arduino-required loop function
 void loop(){
+
+  //stop the car before doing the testing 
   rightMotorStop();
   leftMotorStop();
   delay(2 * timeConst);
