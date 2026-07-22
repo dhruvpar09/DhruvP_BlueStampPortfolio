@@ -286,7 +286,7 @@ void timedLeftRight(int milliseconds){
 
   My summer intensive project is the self driving car. I chose this project because it integrates sensors and motor movement into one project. Most robots in the industry need to change their motion as a reaction to sensor inputs; a project that does just that gives me valuable experience to build on in future robotics projects. This project also has the flexibility to support many potential modifications, giving me many options to expand on it depending on which technologies I choose to gain experience with.
 
-  I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were powering the motors' movement, instead of solely telling the motor driver how to control them. I adjusted to this information, using the Arduino's INPUT and OUTPUT LOW pin modes (instead of the more typical OUTPUT LOW and OUTPUT HIGH) to toggle whether each motor was rotating or not. Following this, I wrote some tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
+  I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were powering the motors' movement, instead of solely telling the motor driver how to control them. I adjusted to this information, using the Arduino's INPUT and OUTPUT LOW pin modes (instead of the more typical OUTPUT LOW and OUTPUT HIGH modes) to toggle whether each motor was rotating or not. Following this, I wrote some tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
 
 Motor Tester Code:
 ```c++
@@ -437,9 +437,13 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 ## Summer Intensive Project 
-| **Part** | **Purpose** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| **Part** | **Qty** | **Purpose** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|:--:|
+| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a href="https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY"> Link </a> |
+|:--:|:--:|:--:|:--:|:--:|
+| Switch | 2 | Used for turning the car and the remote control on and off. | $?? | addherelater.com | 
+| Mini Breadboard | 1 | Used for the wiring in the remote control. | $?? | addherelater.com | 
+| 9 Volt Amazon Basics Battery | 1 | Used to power the remote control. | $?? | addherelater.com | 
 
 <!--
 # Other Resources/Examples
