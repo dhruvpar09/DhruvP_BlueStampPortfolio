@@ -8,8 +8,8 @@ You should comment out all portions of your portfolio that you have not complete
 
 | **Student** | **School** | **Areas of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Dhruv P | Stratford Preparatory | Robotics | Incoming Junior
-| | Blackford | Computer Science | 
+| Dhruv P | Stratford Preparatory | Robotics | Incoming Junior |
+| | Blackford | Computer Science | |
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. (note to self: this image is a placeholder for now.) Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
@@ -35,6 +35,14 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G32riu_K6mg" title="Second Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+  The second milestone in my self-driving car project involved programming the motion for the car, without considering sensor data. The purpose of this milestone was to ensure that the car could properly move forwards, backwards, and rotate in place. I plan to build on this functionality when incorporating the car's sensors to the code in my third milestone. 
+
+  To complete this issue, I wired the motor driver and the motors to the Arduino Uno that ran my car, also adding an on/off switch to the car so the code wouldn't start running when I wasn't ready. Building on my tester methods from my first milestone, I wrote some code that would move the car forwards, move it backwards, turn it left or right in place, or stop it. The car would need these abilities in order to properly react to obstacles it detects once it is connected to its sensors.
+
+  While trying to complete this milestone, I found that the car drifted to the left while trying to drive forwards or backwards. This was because the right motor turned faster than the left, despite being programmed to move at the same speed. Neither using my code to slow down the faster motor nor putting a resistor in the faster motor's circuitry could effectively solve this issue, as the motors I was using in the car were not designed to handle slower motion. These motors would alternate between operating at full speed and stopping entirely when presented with a low amperage, instead of cleanly slowing down their speed. 
+  
+  Internal motor differences turned out to be the issue; the motors that came with this project have loose manufacturing constraints, meaning different motors of the same model could have up to 15% differences in their RPM. After learning this, I swapped out the motors with a model that was less prone to manufacturing defects, which solved the drift issue in a more consistent manner than my other solutions. 
+
 <!--
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -53,9 +61,10 @@ int leftForwardPin = 9;
 int leftBackwardPin = 6;
 int onOffSwitchPin = 7;
 
+
+
 //code to change motor movement states
 //pin map: rightBackwardPin --> right back, rightForwardPin --> right forward, leftForwardPin --> left forward, leftBackwardPin --> left back
-//methods have not been updated to reflect that /\ 
 //movement map: input --> stop, output & low --> move
 void leftMotorForward() {
   pinMode(leftBackwardPin, INPUT);
@@ -91,6 +100,8 @@ void rightMotorStop() {
   pinMode(rightForwardPin, INPUT);
 }
 
+
+
 //no-parameter movement code
 //forward movement, backward movement, left or right rotation, and stopping
 void startForward(){
@@ -118,8 +129,9 @@ void stop(){
   leftMotorStop();
 }
 
+
+
 //time based functions for movement, rotation, and stopping
-//basically, "do this action for a specified amount of time"
 void forwardTime(int milliseconds){
   startForward();
   delay(milliseconds);
@@ -149,6 +161,9 @@ void stopTime(int milliseconds){
   delay(milliseconds);
 }
 
+
+
+
 //actual code and testing
 //arduino-required setup function
 void setup() {
@@ -171,12 +186,14 @@ void setup() {
   digitalWrite(leftBackwardPin, LOW);
 }
 
+
+
+
 bool canRunCode = false;
 //arduino-required loop function
 void loop() {
   if (canRunCode){
     //tester code only for now
-    /*
     motorTest();
     delay(100);
     forwardBackward();
@@ -186,9 +203,13 @@ void loop() {
     timedForwardBackward(2000);
     delay(100);
     timedLeftRight(2000);
+    
+    //tester code I used to debug drift
+    //focused on forward and backward movement
     */
     forwardBackward();
     delay(100);
+    */
   }
   
 
@@ -202,6 +223,10 @@ void loop() {
     canRunCode = false;
   }
 }
+
+
+
+
 
 //tester methods
 //tests if each motor can move forward and backwards
@@ -437,13 +462,18 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 ## Summer Intensive Project 
+Base Project: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
 | SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a href="https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY"> Link </a> |
-|:--:|:--:|:--:|:--:|:--:|
+
+Modification: 
+| **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 | Switch | 2 | Used for turning the car and the remote control on and off. | $?? | addherelater.com | 
 | Mini Breadboard | 1 | Used for the wiring in the remote control. | $?? | addherelater.com | 
 | 9 Volt Amazon Basics Battery | 1 | Used to power the remote control. | $?? | addherelater.com | 
+
+other unlisted parts: joystick, small jumper wires, the wire that connects the battery to the breadboard, the arduino nano, etc.
 
 <!--
 # Other Resources/Examples
