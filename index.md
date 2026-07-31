@@ -469,6 +469,7 @@ Base Project:
 
 Modification: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|:--:|
 | Switch | 2 | Used for turning the car and the remote control on and off. | $?? | addherelater.com | 
 | Mini Breadboard | 1 | Used for the wiring in the remote control. | $?? | addherelater.com | 
 | 9 Volt Amazon Basics Battery | 1 | Used to power the remote control. | $?? | addherelater.com | 
