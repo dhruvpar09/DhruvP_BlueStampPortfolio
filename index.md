@@ -30,6 +30,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What you hope to learn in the future after everything you've learned at BSE
 -->
 
+  For the third milestone of this self-driving car, I connected the two infrared sensors and the ultrasonic sensor to the Arduino Uno that was operating the car. I then programmed the car to take input from these sensors, and to alter its driving path according to the data it received. While the infrared sensors where relatively simple to code, requiring only a simple conditional for each sensor, the ultrasonic sensor required a more nuanced algorithm. The Arduino had to send a high-voltage pulse to the _trigger_ pin of the ultrasonic sensor for exactly ten seconds, measure the length of a return signal coming from the sensor's _echo_ pin, and multiply that length by the speed of sound in order to get a distance measurement from that sensor.
 
 # Second Milestone
 
