@@ -466,7 +466,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 ## Starter Project 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| Item Name | How many were needed? | What the item is used for | $18.99 | [Link](https://www.amazon.com/Classic-Electronic-Soldering-Tetris-Machine/dp/B07HB3HPPJ?th=1) |
+| Handheld Retro Arcade Console | 1 | This kit provides the parts to assemble the Retro Arcade Console. | $18.99 | [Link](https://www.amazon.com/Classic-Electronic-Soldering-Tetris-Machine/dp/B07HB3HPPJ?th=1) |
 
 ## Summer Intensive Project 
 Base Project: 
@@ -486,11 +486,13 @@ Modification:
 | Arduino Nano | 1 | Acts as the "brain" of the remote control, taking inputs from the joystick module and communicating them to the car. | $?? | addlater.com |
 | HC-05 Bluetooth Module | 1 or 2 | Transmits data between the car and the controller. This device can both send and receive data, meaning it can be used on both the car and the controller. | $?? | addherelater.com |
 | HC-06 Bluetooth Module (optional) | 1 | This device can only receive data from another Bluetooth sensor like the HC-05. It can be used to help the car receive data from the remote control, making it a usable replacement for the car's HC-05 bluetooth module if a second module is not available. | $?? | addherelater.com |
-| 3D-Printed Controller Base | 1 | Forms the structural backbone of the remote control's hardware. | N/A | addherelater.com | 
+| 3D-Printed Controller Base | 1 | Forms the structural backbone of the remote control's hardware. | N/A | N/A | 
 | Resistors | 3 | Lower the arduino nano's 5V outputs to 3.3V to make them compatible with the HC-05 on the remote control. | $?? | addherelater.com |
 
+<!--
 other unlisted parts: joystick, small jumper wires, the wire that connects the battery to the breadboard, the arduino nano, etc.
 full parts list: 3d printed base, two mini breadboards, arduino nano, switch, switch base, bluetooth modules (both controller and car), wires, smaller wires, resistors, joystick module
+-->
 
 <!--
 # Other Resources/Examples
