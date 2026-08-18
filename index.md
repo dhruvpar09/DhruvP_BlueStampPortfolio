@@ -1,5 +1,5 @@
 # Self Driving Car
-This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. I am considering adding a camera to this robot and incorporating image recognition into it, although this may change if time constraints or other factors do not permit it.
+This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. As an additional modification to my base project, I have added a remote control to operate the robot using a hybrid of user inputs and sensor data. (work in progress)
 
 ```HTML
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions. 
@@ -458,19 +458,21 @@ void loop() {
 -->
 
 # Bill of Materials
+<!--
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
+Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs.
+-->
 
 ## Starter Project 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| Item Name | How many were needed? | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/" Link> </a> |
+| Item Name | How many were needed? | What the item is used for | $Price | [Link](https://www.amazon.com/Classic-Electronic-Soldering-Tetris-Machine/dp/B07HB3HPPJ?th=1) |
 
 ## Summer Intensive Project 
 Base Project: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a href= "https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY" Self Driving Car Kit> </a> |
+| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | [Link](https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY) |
 
 Modification: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
