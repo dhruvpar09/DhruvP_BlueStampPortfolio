@@ -30,11 +30,11 @@ For your final milestone, explain the outcome of your project. Key details to in
 - What you hope to learn in the future after everything you've learned at BSE
 -->
 
-  For the third milestone of this self-driving car, I connected the two infrared sensors and the ultrasonic sensor to the Arduino Uno that was operating the car. I then programmed the car to take input from these sensors, and to alter its driving path according to the data it received. While the infrared sensors where relatively simple to code, requiring only a simple conditional for each sensor, the ultrasonic sensor required a more nuanced algorithm. The Arduino had to send a high-voltage pulse to the _trigger_ pin of the ultrasonic sensor for exactly ten seconds, measure the length of a return signal from the sensor's _echo_ pin, and multiply that length by the speed of sound in order to get a distance measurement.
+  For the third milestone of this self-driving car, I connected the two infrared sensors and the ultrasonic sensor to the car's Arduino Uno. I then programmed the car to take input from these sensors, and to alter its driving path according to the data it received. While the infrared sensors where relatively simple to code, requiring only a simple conditional for each sensor, the ultrasonic sensor required a more nuanced algorithm. The Arduino had to send a high-voltage pulse to the _trigger_ pin of the ultrasonic sensor for exactly ten milliseconds, measure the length of a return signal from the sensor's _echo_ pin, and multiply that length by the speed of sound in order to obtain a distance measurement.
 
-  Initially, I wrote my own code to acquire data from the ultrasonic sensor, but I encountered an issue wherein the ultrasonic sensor would always send a value of zero to the Arduino Uno. This would happen either if the ultrasonic sensor never sent a return signal to the Arduino Uno or if the Arduino only tried to detect the signal before or after the signal was transmitted. I adjusted my code to circumvent both of these issues, and also tried replacing the ultrasonic sensor itself, but neither of these changes fixed the issue. 
+  Initially, I wrote my own code to acquire data from the ultrasonic sensor, but I encountered an issue wherein the ultrasonic sensor would always send a value of zero to the Arduino Uno. This could happen for one of two reasons: either the ultrasonic sensor never sent a return signal to the Arduino Uno, or the Arduino  tried to detect the signal before or after the signal was transmitted. I adjusted my code to circumvent both of these issues, and also tried replacing the ultrasonic sensor itself, but neither of these changes fixed the issue. 
 
-  I eventually fixed this issue by using the commands from Tim Eckel's NewPing library for Arduinos. The ultrasonic sensor I was using, the HC-SR04, had a flaw that caused it to return zero instead of its distance limit if it didn't detect an object within its range of operation. The NewPing library circumvents this. After making this adjustment, I found that the HC-SR04 provided accurate distance readings to the Arduino Uno, allowing the car to effectively detect obstacles and avoid them as I had intended.
+  I eventually fixed this issue by using the commands from Tim Eckel's NewPing library for Arduinos. The ultrasonic sensor I was using, the HC-SR04, had a flaw that caused it to return zero instead of its distance limit if it didn't detect an object within its range of operation. The NewPing library circumvents this. After making this adjustment, I found that the HC-SR04 provided accurate distance readings to the Arduino Uno, allowing the car to effectively detect obstacles and avoid them as intended.
 
 # Second Milestone
 
@@ -42,7 +42,7 @@ For your final milestone, explain the outcome of your project. Key details to in
 
   The second milestone in my self-driving car project involved programming the motion for the car, without considering sensor data. The purpose of this milestone was to ensure that the car could properly move forwards, backwards, and rotate in place. I plan to build on this functionality when incorporating the car's sensors to the code in my third milestone. 
 
-  To complete this issue, I wired the motor driver and the motors to the Arduino Uno that ran my car, also adding an on/off switch to the car so the code wouldn't start running when I wasn't ready. Building on my tester methods from my first milestone, I wrote some code that would move the car forwards, move it backwards, turn it left or right in place, or stop it. The car would need these abilities in order to properly react to obstacles it detects once it is connected to its sensors. 
+  To complete this issue, I wired the motor driver and the motors to the Arduino Uno that ran my car, adding an on/off switch to the car so the code wouldn't start running when I wasn't ready. Building on my tester methods from my first milestone, I wrote some code that would move the car forwards, move it backwards, turn it left or right in place, or stop it. The car would require these abilities in order to properly react to obstacles once it is connected to its sensors. 
 
   While trying to complete this milestone, I found that the car drifted to the left while trying to drive forwards or backwards. This was because the right motor turned faster than the left, despite being programmed to move at the same speed. Neither using my code to slow down the faster motor nor putting a resistor in the faster motor's circuitry could effectively solve this issue, as the motors I was using in the car were not designed to handle slower motion. These motors would alternate between operating at full speed and stopping entirely when presented with a low amperage, instead of cleanly slowing down their speed. 
   
@@ -211,7 +211,7 @@ void loop() {
     
     //tester code I used to debug drift
     //focused on forward and backward movement
-    */
+    /*
     forwardBackward();
     delay(100);
     */
@@ -434,7 +434,7 @@ For your first milestone, describe what your project is and how you plan to buil
 ## Retro Arcade Console
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6TELPC9OSp4" title="Starter Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-My starter project was the Retro Arcade Console. This console simulates multiple retro video games via a CPU soldered onto a motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then accordingly changes the game environment. It then instructs the LCD screens on what to display in order to reflect this change.
+My starter project was the Retro Arcade Console. This console simulates multiple retro video games via a CPU soldered onto a motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then accordingly changes the game environment. It then informs the LCD screens regarding what to display in order to reflect this change.
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
@@ -462,24 +462,33 @@ Here's where you'll list the parts in your project. To add more rows, just copy 
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 
 ## Starter Project 
-| **Part** | **Purpose** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| **Part** | **Qty** | **Purpose** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|:--:|
+| Item Name | How many were needed? | What the item is used for | $Price | <a></a> href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 ## Summer Intensive Project 
 Base Project: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a href="https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY"> Link </a> |
+| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a> href="https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY"> Link </a> |
 
 Modification: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
 | Switch | 2 | Used for turning the car and the remote control on and off. | $?? | addherelater.com | 
-| Mini Breadboard | 1 | Used for the wiring in the remote control. | $?? | addherelater.com | 
+| Mini Breadboard | 2 | Used for managing wiring in the remote control. | $?? | addherelater.com | 
 | 9 Volt Amazon Basics Battery | 1 | Used to power the remote control. | $?? | addherelater.com | 
+| Joystick Module | 1 | Measures the user input that tells the controller how to control the car. | $??? | addherelater.com |
+| Jumper Wires | 12 | Electrically connects the Bluetooth sensor, Arduino nano, and joystick module on the controller. | $?? | addherelater.com |
+| Battery Wire | 1 | Connects the battery to the breadboard, allowing it to power the remote control's components. | $?? | addherelater.com |
+| Arduino Nano | 1 | Acts as the "brain" of the remote control, taking inputs from the joystick module and communicating them to the car. | $?? | addlater.com |
+| HC-05 Bluetooth Module | 1 or 2 | Transmits data between the car and the controller. This device can both send and receive data, meaning it can be used on both the car and the controller. | $?? | addherelater.com |
+| HC-06 Bluetooth Module (optional) | 1 | This device can only receive data from another Bluetooth sensor like the HC-05. It can be used to help the car receive data from the remote control, making it a usable replacement for the car's HC-05 bluetooth module if a second module is not available. | $?? | addherelater.com |
+| 3D-Printed Controller Base | 1 | Forms the structural backbone of the remote control's hardware. | N/A | addherelater.com | 
+| Resistors | 3 | Lower the arduino nano's 5V outputs to 3.3V to make them compatible with the HC-05 on the remote control. | $?? | addherelater.com |
 
 other unlisted parts: joystick, small jumper wires, the wire that connects the battery to the breadboard, the arduino nano, etc.
+full parts list: 3d printed base, two mini breadboards, arduino nano, switch, switch base, bluetooth modules (both controller and car), wires, smaller wires, resistors, joystick module
 
 <!--
 # Other Resources/Examples
