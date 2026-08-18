@@ -62,7 +62,7 @@ For your second milestone, explain what you've worked on since your previous mil
 <details>
   <summary> Click to See Code </summary>
 
-  ```c++
+```c++
 int rightBackwardPin = 5;
 int rightForwardPin = 3;
 int leftForwardPin = 9;
@@ -312,6 +312,7 @@ void timedLeftRight(int milliseconds){
   stopTime(milliseconds);
 }
 ```
+
 </details>
 
 # First Milestone
@@ -325,7 +326,7 @@ void timedLeftRight(int milliseconds){
 Motor Tester Code:
 <details>
   <summary> Click to See Code </summary>
-  
+
 ```c++
 
 //methods to either stop each motor or move them forward or backward
@@ -434,6 +435,7 @@ void loop(){
 }
 
 ```
+
 </details>
 
 
