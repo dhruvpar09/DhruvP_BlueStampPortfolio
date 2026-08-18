@@ -466,7 +466,7 @@ Don't forget to place the link of where to buy each component inside the quotati
 ## Starter Project 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| Item Name | How many were needed? | What the item is used for | $Price | [Link](https://www.amazon.com/Classic-Electronic-Soldering-Tetris-Machine/dp/B07HB3HPPJ?th=1) |
+| Item Name | How many were needed? | What the item is used for | $18.99 | [Link](https://www.amazon.com/Classic-Electronic-Soldering-Tetris-Machine/dp/B07HB3HPPJ?th=1) |
 
 ## Summer Intensive Project 
 Base Project: 
