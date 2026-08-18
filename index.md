@@ -464,13 +464,13 @@ Don't forget to place the link of where to buy each component inside the quotati
 ## Starter Project 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| Item Name | How many were needed? | What the item is used for | $Price | <a> "https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/" </a> |
+| Item Name | How many were needed? | What the item is used for | $Price | <a> "https://www.amazon.com/Arduino- A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/" </a> |
 
 ## Summer Intensive Project 
 Base Project: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a> "https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY" </a> |
+| SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | <a> "https://www.sunfounder.com/products/sunfounder-3-in-1-iot- smart-car-learning-ultimate-starter-kit?srsltid= AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY" </a> |
 
 Modification: 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
