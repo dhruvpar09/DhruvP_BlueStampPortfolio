@@ -60,7 +60,7 @@ For your second milestone, explain what you've worked on since your previous mil
 -->
 
 ## Second Milestone Code
-<details>
+<details markdown="1">
   <summary> Click to See Code </summary>
 
 ```c++
@@ -325,7 +325,7 @@ void timedLeftRight(int milliseconds){
   I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were powering the motors' movement, instead of solely telling the motor driver how to control them. I adjusted to this information, using the Arduino's INPUT and OUTPUT LOW pin modes (instead of the more typical OUTPUT LOW and OUTPUT HIGH modes) to toggle whether each motor was rotating or not. Following this, I wrote some tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
 
 ## Motor Tester Code
-<details>
+<details markdown="1">
   <summary> Click to See Code </summary>
 
 ```c++
