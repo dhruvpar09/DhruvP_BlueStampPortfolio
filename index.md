@@ -1,6 +1,7 @@
 # Self Driving Car
 This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. As an additional modification to my base project, I have added a remote control to operate the robot using a hybrid of user inputs and sensor data. (work in progress)
 
+
 ```HTML
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions. 
 (note to self: this isn't commented out to keep it visible. it should be deleted before the website is complete.)
