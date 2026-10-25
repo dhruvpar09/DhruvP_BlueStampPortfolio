@@ -482,17 +482,20 @@ Don't forget to place the link of where to buy each component inside the quotati
 -->
 
 ## Starter Project 
+
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
 | Handheld Retro Arcade Console | 1 | This kit provides the parts to assemble the Retro Arcade Console. | $18.99 | [Link](https://www.amazon.com/Classic-Electronic-Soldering-Tetris-Machine/dp/B07HB3HPPJ?th=1) |
 
 ## Summer Intensive Project 
 Base Project: 
+
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
 | SunFounder 3 in 1 Starter Kit for Arduino Uno R3 | 1 | This kit provides the parts to assemble most of the car. | $69.99 | [Link](https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit?srsltid=AfmBOopqG3fJE8ARriXbo07YSeJAzOxmRQ3_DbDJ0zqd3IFKag0afaFY) |
 
 Modification: 
+
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
 | 3D-Printed Controller Base | 1 | Forms the structural backbone of the remote control's hardware. | N/A | N/A | 
