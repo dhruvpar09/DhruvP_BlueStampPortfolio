@@ -498,17 +498,22 @@ Modification:
 
 | **Part** | **Qty** | **Purpose** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|:--:|
-| Switch | 2 | Used for turning the car and the remote control on and off. | $?? | addherelater.com | 
-| Mini Breadboard | 2 | Used for managing wiring in the remote control. | $?? | addherelater.com | 
+| 3D-Printed Controller Base | 1 | Forms the structural backbone of the remote control's hardware. | N/A | N/A | 
 | 9 Volt Amazon Basics Battery | 1 | Used to power the remote control. | $?? | addherelater.com | 
-| Joystick Module | 1 | Measures the user input that tells the controller how to control the car. | $??? | addherelater.com |
-| Jumper Wires | 12 | Electrically connects the Bluetooth sensor, Arduino nano, and joystick module on the controller. | $?? | addherelater.com |
 | Battery Wire | 1 | Connects the battery to the breadboard, allowing it to power the remote control's components. | $?? | addherelater.com |
+| Joystick Module | 1 | Measures the user input that tells the controller how to control the car. | $??? | addherelater.com |
+| Mini Breadboard | 2 | Used for managing wiring in the remote control. | $?? | addherelater.com | 
 | Arduino Nano | 1 | Acts as the "brain" of the remote control, taking inputs from the joystick module and communicating them to the car. | $?? | addlater.com |
 | HC-05 Bluetooth Module | 1 or 2 | Transmits data between the car and the controller. This device can both send and receive data, meaning it can be used on both the car and the controller. | $?? | addherelater.com |
 | HC-06 Bluetooth Module (optional) | 1 | This device can only receive data from another Bluetooth sensor like the HC-05. It can be used to help the car receive data from the remote control, making it a usable replacement for the car's HC-05 bluetooth module if a second module is not available. | $?? | addherelater.com |
-| 3D-Printed Controller Base | 1 | Forms the structural backbone of the remote control's hardware. | N/A | N/A | 
+| Switch | 2 | Used for turning the car and the remote control on and off. | $?? | addherelater.com | 
+| Jumper Wires | 12 | Wiring to connect the Bluetooth sensor, Arduino nano, and joystick module on the controller. | $?? | addherelater.com |
+| Zip Ties | 3 | Cable management in the car and in the remote control. | $?? | addherelater.com | 
 | Resistors | 3 | Lower the arduino nano's 5V outputs to 3.3V to make them compatible with the HC-05 on the remote control. | $?? | addherelater.com |
+| Screws | 4 | Attach the joystick module to the 3d printed base of the remote control. | $?? | addherelater.com | 
+| Bolts | 4 | Attach the joystick module to the 3d printed base of the remote control. | $?? | addherelater.com |
+| LED | 1 | This is attached to the _state_ pin of the HC-05 to indicate the remote control's connectivity to the self-driving car. | $?? | addherelater.com | 
+| Dupont Stilts | 2 | Facilitate the switches' connectivity to the car and the remote control by acting as an "adapter" for their differently shaped pins. | $?? | addherelater.com |
 
 <!--
 other unlisted parts: joystick, small jumper wires, the wire that connects the battery to the breadboard, the arduino nano, etc.
