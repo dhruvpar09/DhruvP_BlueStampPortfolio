@@ -1,5 +1,5 @@
 # Self Driving Car
-This Arduino Uno-based autonomous vehicle uses infrared- and ultrasonic-based sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. As an additional modification to my base project, I have added a remote control to operate the robot, allowing it to move using a hybrid of user inputs and sensor data. (this is a work in progress though)
+This Arduino Uno-based autonomous vehicle uses infrared and ultrasonic sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. As an additional modification to my base project, I have added a remote control to operate the robot, allowing it to move using a hybrid of user inputs and sensor data. (this is a work in progress though)
 
 
 ```HTML
@@ -16,7 +16,12 @@ You should comment out all portions of your portfolio that you have not complete
 
 ![Headstone Image](image.png)
 ![Headstone Image](SunFounderArduinoSelfDrivingCarImage.png)
-  
+
+
+
+
+
+
 # Third Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7JM3k529tL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -36,6 +41,12 @@ For your final milestone, explain the outcome of your project. Key details to in
   Initially, I wrote my own code to acquire data from the ultrasonic sensor, but I encountered an issue wherein the ultrasonic sensor would always send a value of zero to the Arduino Uno. As a result, the self-driving car always assumed that an obstacle was zero cm away from it, turning away to avoid an obstacle even when one wasn't present. This could happen for one of two reasons: either the ultrasonic sensor never sent a return signal to the Arduino Uno, or the Arduino tried to detect the signal before or after the signal was transmitted. I adjusted my code to circumvent both of these issues, and also tried replacing the ultrasonic sensor itself, but neither of these changes fixed the issue. 
 
   The solution that eventually solved this bug involved Tim Eckel's NewPing library for Arduinos. The ultrasonic sensor I was using, the HC-SR04, returned zero instead of its distance limit if it didn't detect an object within its range of operation. The NewPing library circumvents this. After making this adjustment, I found that the HC-SR04 provided accurate distance readings to the Arduino Uno, allowing the car to effectively detect obstacles and avoid them as intended.
+
+
+
+
+
+
 
 # Second Milestone
 
@@ -316,6 +327,11 @@ void timedLeftRight(int milliseconds){
 
 </details>
 
+
+
+
+
+
 # First Milestone
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FzxPjumBy4o" title="First Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -448,14 +464,32 @@ For your first milestone, describe what your project is and how you plan to buil
 - What your plan is to complete your project
 -->
 
+
+
+
+
+
 # Starter Project
 ## Retro Arcade Console
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6TELPC9OSp4" title="Starter Project" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 My starter project was the Retro Arcade Console. This console simulates multiple retro video games via a CPU soldered onto a motherboard. When the user presses one of the six buttons on the console, (excluding the on/off button) the CPU identifies the button that has been pressed, and then accordingly changes the game environment. It then informs the LCD screens regarding what to display in order to reflect this change.
 
+
+
+
+
+
 # Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+<!--
+Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.
+-->
+
+![Headstone Image](CircuitDiagramSelfDrivingCar.png)
+![Headstone Image](CircuitDiagramRemoteControl.png)
+
+
+
 
 <!--
 # Code
@@ -514,6 +548,10 @@ Modification:
 | Bolts | 4 | Attach the joystick module to the 3d printed base of the remote control. | $?? | addherelater.com |
 | LED | 1 | This is attached to the _state_ pin of the HC-05 to indicate the remote control's connectivity to the self-driving car. | $?? | addherelater.com | 
 | Dupont Stilts | 2 | Facilitate the switches' connectivity to the car and the remote control by acting as an "adapter" for their differently shaped pins. | $?? | addherelater.com |
+
+
+
+
 
 <!--
 other unlisted parts: joystick, small jumper wires, the wire that connects the battery to the breadboard, the arduino nano, etc.
