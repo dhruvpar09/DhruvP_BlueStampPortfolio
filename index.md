@@ -485,8 +485,24 @@ My starter project was the Retro Arcade Console. This console simulates multiple
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.
 -->
 
+Self Driving Car Wiring:
 ![Headstone Image](CircuitDiagramSelfDrivingCar.png)
+
+Color Key:
+red: power source (VCC)
+black: ground (GND)
+other: other purposes
+
+
+Remote Control Wiring:
 ![Headstone Image](CircuitDiagramRemoteControl.png)
+
+Color Key:
+red: power source (VCC)
+black: ground (GND)
+pink: connected to bluetooth module
+green: connected to joystick module
+
 
 
 
