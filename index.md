@@ -1,5 +1,6 @@
 # Self Driving Car
-This Arduino Uno-based autonomous vehicle uses infrared and ultrasonic sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. As an additional modification to my base project, I have added a remote control to operate the robot, allowing it to move using a hybrid of user inputs and sensor data. (this is a work in progress though)
+My Arduino Uno-based autonomous vehicle uses infrared and ultrasonic sensors for short and long range object detection, respectively. Using the data from these sensors, it adjusts its motion to avoid obstacles. As an additional modification to my base project, I have added a remote control to operate the robot, allowing it to move using a hybrid of user inputs and sensor data. (this is a work in progress though)
+
 
 
 ```HTML
@@ -26,6 +27,8 @@ You should comment out all portions of your portfolio that you have not complete
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7JM3k529tL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+
+
 <!--
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -35,6 +38,8 @@ For your final milestone, explain the outcome of your project. Key details to in
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
 -->
+
+
 
   For the third milestone of this self-driving car, I connected the two infrared sensors and the ultrasonic sensor to the car's Arduino Uno. I then programmed the car to take input from these sensors, and to alter its driving path according to the data it received. While the infrared sensors where relatively simple to code, requiring only a simple conditional for each sensor, the ultrasonic sensor required a more nuanced algorithm. The Arduino had to send a high-voltage pulse to the _trigger_ pin of the ultrasonic sensor for exactly ten milliseconds, measure the length of a return signal from the sensor's _echo_ pin, and multiply that length by the speed of sound in order to obtain a distance measurement.
 
@@ -60,6 +65,8 @@ For your final milestone, explain the outcome of your project. Key details to in
   
   Internal motor differences turned out to be the issue; the motors that came with this project have loose manufacturing constraints, meaning different motors of the same model could have up to 15% differences in their RPM. After learning this, I swapped out the motors with a model that was less prone to manufacturing defects, which solved the drift issue in a more consistent manner than my other solutions. 
 
+
+
 <!--
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
@@ -69,6 +76,8 @@ For your second milestone, explain what you've worked on since your previous mil
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
 -->
+
+
 
 ## Second Milestone Code
 <details markdown="1">
@@ -83,8 +92,8 @@ int onOffSwitchPin = 7;
 
 
 
-//code to change motor movement states
-//pin map: rightBackwardPin --> right back, rightForwardPin --> right forward, leftForwardPin --> left forward, leftBackwardPin --> left back
+//code to change movement of individual motors
+//basis to build on for car movement
 //movement map: input --> stop, output & low --> move
 void leftMotorForward() {
   pinMode(leftBackwardPin, INPUT);
@@ -122,7 +131,7 @@ void rightMotorStop() {
 
 
 
-//no-parameter movement code
+//basic movement code
 //forward movement, backward movement, left or right rotation, and stopping
 void startForward(){
   rightMotorForward();
@@ -185,7 +194,8 @@ void stopTime(int milliseconds){
 
 
 //actual code and testing
-//arduino-required setup function
+//arduino setup function
+//code in here runs once when the Arduino boots
 void setup() {
 
   //not related to motors or sensors
@@ -210,10 +220,12 @@ void setup() {
 
 
 bool canRunCode = false;
-//arduino-required loop function
+//arduino loop function
+//everything in here runs repeatedly
 void loop() {
   if (canRunCode){
-    //tester code only for now
+    
+    //tester code for all types of possible motor movement
     motorTest();
     delay(100);
     forwardBackward();
@@ -225,21 +237,23 @@ void loop() {
     timedLeftRight(2000);
     
     //tester code I used to debug drift
-    //focused on forward and backward movement
-    /*
+    //focused on forward and backward movement /*
     forwardBackward();
     delay(100);
     */
   }
   
 
+  //check whether the on/off switch is on each time the loop function runs
   int isCircuitActive = digitalRead(onOffSwitchPin);
-  Serial.println(digitalRead(onOffSwitchPin));
+  Serial.println(isCircuitActive);
+
   if (isCircuitActive==1){
     canRunCode = true;
   } else if (isCircuitActive==0){
     canRunCode = false;
-  } else { //good programming practice? (add an else block everywhere) 
+  } else {
+    Serial.println("unexpected result from on/off switch check."); 
     canRunCode = false;
   }
 }
@@ -249,7 +263,7 @@ void loop() {
 
 
 //tester methods
-//tests if each motor can move forward and backwards
+//this function tests if each motor can individually move forward and backwards
 void motorTest(){
   Serial.println("motorTest executing");
   rightMotorStop();
@@ -273,10 +287,10 @@ void motorTest(){
   delay(1000);
   leftMotorStop();
   delay(1000);
-
 }
 
-//tests forward and backward movement
+
+//this function tests forward and backward movement of the whole car
 void forwardBackward(){
   Serial.println("executing forwardBackward");
   stop();
@@ -290,7 +304,8 @@ void forwardBackward(){
   delay(1000);
 }
 
-//tests left and right rotation
+
+//this function tests left and right rotation
 void rotateLeftRight(){
   Serial.println("rotateLeftRight executing");
   stop();
@@ -304,7 +319,8 @@ void rotateLeftRight(){
   delay(1000);
 }
 
-//tests methods that make the car go forward and backward for a specific amount of time
+
+//this function tests the methods that make the car go forward and backward for a specific amount of time
 void timedForwardBackward(int milliseconds){
   Serial.println("timed forward backward executing");
   stop();
@@ -314,7 +330,8 @@ void timedForwardBackward(int milliseconds){
   stopTime(milliseconds);
 }
 
-//tests methods that make the car turn right or left for a specific amount of time
+
+//this function tests the methods that make the car turn right or left for a specific amount of time
 void timedLeftRight(int milliseconds){
   Serial.println("timed left right executing");
   stop();
@@ -336,9 +353,9 @@ void timedLeftRight(int milliseconds){
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FzxPjumBy4o" title="First Milestone" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-  My summer intensive project is the self driving car. I chose this project because it integrates sensors and motor movement into one project. Most robots in the industry need to change their motion as a reaction to sensor inputs; a project that does just that gives me valuable experience to build on in future robotics projects. This project also has the flexibility to support many potential modifications, giving me many options to expand on it depending on which technologies I choose to gain experience with.
+  My summer intensive project is the self driving car. I chose this project because it integrates sensors and motor movement into one project. Most robots in the industry need to change their behavior as a reaction to sensor inputs; a project that does just that gives me valuable experience to build on in future robotics projects. This project also has the flexibility to support many potential modifications, giving me many options to expand on it depending on which technologies I choose to integrate.
 
-  I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project can be separated into two milestones, (motors and sensors) completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were powering the motors' movement, instead of solely telling the motor driver how to control them. I adjusted to this information, using the Arduino's INPUT and OUTPUT LOW pin modes (instead of the more typical OUTPUT LOW and OUTPUT HIGH modes) to toggle whether each motor was rotating or not. Following this, I wrote some tester code to ensure that the motors could operate properly once they were programmed, and after the motors passed these tests, I decided to film my first milestone video. 
+  I decided that constructing the self-driving car's hardware would be my first milestone. Since my main project required three milestones, and software development for this project could be split into two milestones, completing the hardware appeared to be a sensible first milestone for this project. To complete this milestone, I attached the Arduino Uno, two motors, three wheels, a battery, a breadboard, and various sensors to the base plate of the car. In order to test the motors to make sure they worked properly, I connected the motors and the motor driver to the Arduino Uno. It turns out that the motors only rotated when their corresponding motor driver pins were connected to the ground, not to pins that source current. This surprised me, since I assumed these motor control pins were powering the motors' movement, instead of solely telling the motor driver how to control them. I adjusted to this information, using the Arduino's INPUT and OUTPUT LOW pin modes (instead of the more typical OUTPUT LOW and OUTPUT HIGH modes) to toggle whether each motor was rotating or not. Following this, I wrote some simple tester code to ensure the motors could operate smoothly, even after further software development. The motors passed these tests, giving me a good stopping point to film my first milestone video. 
 
 ## Motor Tester Code
 <details markdown="1">
@@ -346,7 +363,79 @@ void timedLeftRight(int milliseconds){
 
 ```c++
 
-//methods to either stop each motor or move them forward or backward
+//pins the motors are connected to
+int rightBackwardPin = 2;
+int rightForwardPin = 4;
+int leftForwardPin = 7;
+int leftBackwardPin = 8;
+
+
+
+
+//Arduino setup function
+void setup(){
+  Serial.begin(9600);
+  Serial.println("program started");
+
+  //set pins to input so that they are by default stopping motor rotation when the code starts
+  pinMode(rightBackwardPin, INPUT);
+  pinMode(rightForwardPin, INPUT);
+  pinMode(leftForwardPin, INPUT);
+  pinMode(leftBackwardPin, INPUT);
+
+  //setting the pins to low current output
+  //when they are set to output mode, this will prevent them from damaging the motor driver
+  //which would happen from a current supply that the motor driver could not handle
+  digitalWrite(rightBackwardPin, LOW);
+  digitalWrite(rightForwardPin, LOW);
+  digitalWrite(leftForwardPin, LOW);
+  digitalWrite(leftBackwardPin, LOW);
+}
+
+
+
+
+//Arduino loop function
+//repeats indefinetely
+void loop(){
+
+  //stop the car before doing the testing
+  //this also stops the car after the loop function finishes running and restarts
+  rightMotorStop();
+  leftMotorStop();
+  delay(2000);
+
+  //test the right motor's forward motion, backward motion, and stopping ability
+  rightMotorForward();
+  delay(1000);
+  rightMotorStop();
+  delay(1000);
+  rightMotorBackward();
+  delay(1000);
+  rightMotorStop();
+  delay(1000);
+
+  //pause
+  delay(2000);
+
+  //test the left motor's forward motion, backward motion, and stopping ability
+  leftMotorForward();
+  delay(1000);
+  leftMotorStop();
+  delay(1000);
+  leftMotorBackward();
+  delay(1000);
+  leftMotorStop();
+  delay(1000);
+
+  //pause
+  delay(2000);
+}
+
+
+
+
+//functions to either stop each motor or move them forward or backward
 void leftMotorBackward() {
   pinMode(leftBackwardPin, INPUT);
   pinMode(leftForwardPin, OUTPUT);
@@ -379,76 +468,6 @@ void rightMotorForward() {
 void rightMotorStop() {
   pinMode(rightBackwardPin, INPUT);
   pinMode(rightForwardPin, INPUT);
-}
-
-
-
-//pin numbers of the motors
-int rightBackwardPin = 2;
-int rightForwardPin = 4;
-int leftForwardPin = 7;
-int leftBackwardPin = 8;
-
-
-
-//Arduino-required setup function
-void setup(){
-  Serial.begin(9600);
-  Serial.println("program started");
-
-  //set pins to input so that they are by default stopping motor rotation when the code starts
-  pinMode(rightBackwardPin, INPUT);
-  pinMode(rightForwardPin, INPUT);
-  pinMode(leftForwardPin, INPUT);
-  pinMode(leftBackwardPin, INPUT);
-
-  //setting the pins to low current output
-  //when they are set to output mode, this will prevent them from damaging the motor driver
-  //which would happen from a current supply that the motor driver could not handle
-  digitalWrite(rightBackwardPin, LOW);
-  digitalWrite(rightForwardPin, LOW);
-  digitalWrite(leftForwardPin, LOW);
-  digitalWrite(leftBackwardPin, LOW);
-}
-
-
-
-//change this constant to change the speed at which the tester code runs
-int timeConst = 1000;
-
-//arduino-required loop function
-void loop(){
-
-  //stop the car before doing the testing 
-  rightMotorStop();
-  leftMotorStop();
-  delay(2 * timeConst);
-
-  //test the right motor's forward motion, backward motion, and stopping ability
-  rightMotorForward();
-  delay(1 * timeConst);
-  rightMotorStop();
-  delay(1 * timeConst);
-  rightMotorBackward();
-  delay(1 * timeConst);
-  rightMotorStop();
-  delay(1 * timeConst);
-
-  //pause
-  delay(2 * timeConst);
-
-  //test the left motor's forward motion, backward motion, and stopping ability
-  leftMotorForward();
-  delay(1 * timeConst);
-  leftMotorStop();
-  delay(1 * timeConst);
-  leftMotorBackward();
-  delay(1 * timeConst);
-  leftMotorStop();
-  delay(1 * timeConst);
-
-  //pause
-  delay(2 * timeConst);
 }
 
 ```
@@ -489,19 +508,21 @@ Self Driving Car Wiring:
 ![Headstone Image](CircuitDiagramSelfDrivingCar.png)
 
 Color Key:
-red: power source (VCC)
-black: ground (GND)
-other: other purposes
+
+- red: power source (VCC)
+- black: ground (GND)
+- other: other purposes
 
 
 Remote Control Wiring:
 ![Headstone Image](CircuitDiagramRemoteControl.png)
 
 Color Key:
-red: power source (VCC)
-black: ground (GND)
-pink: connected to bluetooth module
-green: connected to joystick module
+
+- red: power source (VCC)
+- black: ground (GND)
+- pink: connected to bluetooth module
+- green: connected to joystick module
 
 
 
