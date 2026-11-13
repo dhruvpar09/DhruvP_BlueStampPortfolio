@@ -237,7 +237,8 @@ void loop() {
     timedLeftRight(2000);
     
     //tester code I used to debug drift
-    //focused on forward and backward movement /*
+    //focused on forward and backward movement
+    /*
     forwardBackward();
     delay(100);
     */
@@ -499,7 +500,7 @@ My starter project was the Retro Arcade Console. This console simulates multiple
 
 
 
-# Schematics 
+# Circuitry Diagrams  
 <!--
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.
 -->
